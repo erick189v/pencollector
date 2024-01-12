@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Pen Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ pen.color }}</span>
+    <p>Brand: {{ pen.brand }}</p>
+    <p>Description: {{ pen.description|linebreaks }}</p>
+    {% if pen.length > 0 %}
+      <p>Length: {{ pen.length }}</p>
+    {% else %}
+      <p>length: 6</p>
+    {% endif %}
+  </div>
+  <div class="card-action">
+    <a href="{% url 'pens_update' pen.id %}">Edit</a>
+    <a href="{% url 'pens_delete' pen.id %}">Delete</a>
+  </div>
+</div>
+
+{% endblock %}

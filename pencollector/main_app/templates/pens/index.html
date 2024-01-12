@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Pen List</h1>
+
+{% for pen in pens %}
+  <div class="card">
+    <a href="{% url 'detail' pen.id %}">
+    <div class="card-content">
+      <span class="card-title">{{ pen.color }}</span>
+      <p>Brand: {{ pen.brand }}</p>
+      <p>Description: {{ pen.description }}</p>
+      {% if pen.length > 0 %}
+        <p>Age: {{ pen.length }}</p>
+      {% else %}
+        <p>Brand: BIC</p>
+      {% endif %}
+        </div>
+    </a>
+  </div>
+{% endfor %}
+
+{% endblock %}
